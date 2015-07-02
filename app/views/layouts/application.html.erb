@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+      <h1><center>Welcome To MYCar Never Pay More</center></h1>
+<% if user_signed_in? %>
+	
+	<a href="http://localhost/task/all.php">Visit Out Site</a>
+	<%= link_to "Logout", destroy_user_session_path, :method => "delete" %>
+
+<% else %>
+<h1><center>	<%= link_to "Login", new_user_session_path %> </center></h1>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
